@@ -2,14 +2,12 @@ version: '3'
 services:
   app:
     build: .
+    container_name: receiver-api
     volumes:
       - .:/usr/src/app/
-      - dependencies:/usr/src/app/node_modules
     working_dir: /usr/src/app
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
     ports:
       - 3032:3443
-    command: npm run dev
-volumes:
-  dependencies:
+    command: npm start
